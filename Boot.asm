@@ -1,4 +1,4 @@
-; bootloader.asm
+; boot.asm
 
 section .text
     global _start
@@ -25,7 +25,7 @@ _start:
     ; Check for errors in the read operation
     jc disk_error
 
-    ; Jump to the kernel
+    ; Jump to the loaded kernel
     jmp 0x0000:0x0100
 
 disk_error:
@@ -34,6 +34,3 @@ disk_error:
     ; Infinite loop
     cli
     hlt
-
-section .bss
-    ; BSS section (if needed)
